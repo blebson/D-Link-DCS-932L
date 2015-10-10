@@ -159,7 +159,7 @@ def take() {
     }
 }
 
-def motionCmd(int motion, String attr)
+def motionCmd(int motion)
 {
 	def userpassascii = "${CameraUser}:${CameraPassword}"
 	def userpass = "Basic " + userpassascii.encodeAsBase64().toString()
@@ -176,8 +176,8 @@ def motionCmd(int motion, String attr)
     
     log.debug "The Header is $headers"
     
-    if (motion == 1){
- def path = "/motion.cgi?$MotionDetectionEnable=1&ConfigReboot=No"
+    
+ def path = "/motion.cgi?$MotionDetectionEnable=${motion}&ConfigReboot=No"
  log.debug "path is: $path"
   try {
     def hubAction = new physicalgraph.device.HubAction(
@@ -195,28 +195,10 @@ def motionCmd(int motion, String attr)
     	log.debug "Hit Exception $e on $hubAction"
     }
   }
-  else
-  {
-  def path = "/motion.cgi?$MotionDetectionEnable=0&ConfigReboot=No"
- log.debug "path is: $path"  
-  try {
-    def hubAction = new physicalgraph.device.HubAction(
-    	method: "GET",
-    	path: path,
-    	headers: headers        
-        )
-     
-    log.debug hubAction
-    return hubAction
-    
-    }
-    catch (Exception e) {
-    	log.debug "Hit Exception $e on $hubAction"
-    }
   
  
-}
-}
+
+
 def sensitivityCmd(int percent)
 {
 	def userpassascii = "${CameraUser}:${CameraPassword}"
