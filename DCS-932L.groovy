@@ -177,7 +177,7 @@ def motionCmd(int motion)
     log.debug "The Header is $headers"
     
     
- def path = "/motion.cgi?$MotionDetectionEnable=${motion}&ConfigReboot=No"
+ def path = "/motion.cgi?MotionDetectionEnable=${motion}&ConfigReboot=No"
  log.debug "path is: $path"
   try {
     def hubAction = new physicalgraph.device.HubAction(
