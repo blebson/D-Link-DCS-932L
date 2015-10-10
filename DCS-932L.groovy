@@ -1,5 +1,5 @@
 /**
- *	D-Link DCS-932L v1.0.0
+ *	D-Link DCS-932L v1.0.2
  *  Modified from Generic Camera Device v1.0.07102014
  *
  *  Copyright 2014 patrick@patrickstuart.com
