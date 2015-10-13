@@ -61,12 +61,12 @@ metadata {
             state "toggle", label:'toggle', action: "", icon: "st.motion.motion.inactive", backgroundColor: "#53a7c0"
 			state "on", label: 'Motion On', action: "switch.off", icon: "st.motion.motion.active", backgroundColor: "#EE0000", nextState: "toggle"            
 		}         
-       controlTile("levelSliderControl", "device.level", "slider", height: 1, width: 2, inactiveLabel: false, range:"(0..100)") {
+       controlTile("levelSliderControl", "device.level", "slider", height: 1, width: 3, inactiveLabel: false, range:"(0..100)") {
             state "level", action:"switch level.setLevel"
         }
         
         main "motion"
-        details(["cameraDetails", "take", "motion", "PIR", "refresh", "levelSliderControl"])
+        details(["cameraDetails", "take", "motion", "refresh", "levelSliderControl"])
     }
 }
 
